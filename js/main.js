@@ -12,76 +12,69 @@ require.config({
 
 require.config({
 
-	urlArgs: 'bust=' + (new Date()).getTime(), // Cache busting, for development purposes
+  urlArgs: 'bust=' + (new Date()).getTime(), // Cache busting, for development purposes
 
-	paths: {
+  paths: {
 
 /*----------------- Libs --------------------*/
 
-			jquery : 'libs/jquery/jquery',
-			underscore : 'libs/underscore/underscore',
-			backbone : 'libs/backbone/backbone',
-			localStorage: 'libs/underscore/backbone.localStorage',
+      jquery : 'libs/jquery/jquery',
+      underscore : 'libs/underscore/underscore',
+      backbone : 'libs/backbone/backbone',
+      localStorage: 'libs/backbone/backbone.localStorage',
 
 /*----------------- Libs --------------------*/
 
 /*----------------- Views --------------------*/
 
-			UserListView : 'views/users/edit',
-			TestListView : 'views/users/test',
-			ViewsProjectList : 'views/projects/list',
-			ViewsUserList : 'views/users/list',
+      UserListView : 'views/users/edit',
+      TestListView : 'views/users/test',
+      ViewsCreateList : 'views/users/create',
+      ViewsUserList : 'views/users/list',
 
 /*----------------- Views --------------------*/
 
 /*----------------- Models --------------------*/
 
-			UserModel : 'models/users',
-			ProjectsModel : 'models/projects',
-			TestModel : 'models/test',
+      UserModel : 'models/users',
+      ProjectsModel : 'models/projects',
+      TestModel : 'models/test',
 
 /*----------------- Models --------------------*/
 
 /*----------------- Collections --------------------*/
 
-//			UserModel : 'models/users',
-			ProjectsCollection : 'collections/project',
-//			TestModel : 'models/test'
+//      UserModel : 'models/users',
+      ProjectsCollection : 'collections/project',
+//      TestModel : 'models/test'
 
 /*----------------- Collections --------------------*/
 
-	},
+  },
 
-	shim: {
-		backbone: {
-			deps: [ 'underscore', 'jquery' ],
-			exports: 'Backbone'
-		},
-		underscore: {
-			exports: '_'
-		}
-	},
+  shim: {
+    backbone: {
+      deps: [ 'underscore', 'jquery' ],
+      exports: 'Backbone'
+    },
+    underscore: {
+      exports: '_'
+    },
+    localStorage: {
+      deps: ['backbone'],
+      exports: 'localStorage'
+    }
+  },
 
-	priority: [ 'jquery', 'backbone' ]
+  priority: [ 'jquery', 'backbone', 'localStorage' ]
 
-})
+});
 
 require([
 
   // Load our app module and pass it to our definition function
-  'app',
+  'app'
 ], function(App){
   // The "app" dependency is passed in as "App"
   App.initialize();
 });
-
-/*
-require([
-
-	'app', function( App ){
-
-		App.initialize();
-
-	}
-
-])*/

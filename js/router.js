@@ -2,13 +2,14 @@ define([
 'jquery',
 'underscore',
 'backbone',
+'localStorage',
 /*'UserListView',*/
 //'ViewsProjectList',
 'views/users/list',
 'views/projects/list',
 'collections/project'
 //'TestListView'
-//], function($, _, Backbone, UserListView, TestListView ){
+//], function($, _, Backbone, LocalStorage, UserListView, TestListView ){
 ], function($, _, Backbone, UserListView, ProjectListView){
 //console.log(typeof($) + ', ' + typeof(_) + ', ' + typeof(Backbone) + ' => ' + typeof(UserListView));
 
@@ -16,6 +17,7 @@ define([
     routes: {
       // Define some URL routes
       'projects': 'showProjects',
+      'users/create': 'createUser',
       'users/:id': 'showUsers',
 
       // Default
@@ -32,12 +34,20 @@ define([
       // As above, call render on our loaded module
       // 'views/users/list'
 
+    app_router.on('route:createUser', function(){
+      console.log('entra');
+        // Call render on the module we loaded in via the dependency array
+        // 'views/projects/list'
+        var UserCreateView = new UserCreateView();
+        UserCreateView.render();
+    });
+
      app_router.on('route:showProjects', function(){
 
         // Call render on the module we loaded in via the dependency array
         // 'views/projects/list'
         var projectListView = new ProjectListView();
-        projectListView.render();      
+        projectListView.render();
       });
 
       app_router.on('route:showUsers', function(){
@@ -56,5 +66,5 @@ define([
   return {
     initialize: initialize
   };
-  
+
 });

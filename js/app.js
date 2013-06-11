@@ -4,19 +4,20 @@ define([
 	'jquery',
 	'underscore',
 	'backbone',
-	'router',
+	'localStorage',
+	'router'
 
-	], function( $, _, Backbone, Router ){
+	], function( $, _, Backbone, LocalStorage, Router ){
 
 		var initialize = function(){
 			Router.initialize();
 
-		}
+		};
 
 		return{
 
 			initialize : initialize
 
-		}
+		};
 
-	})
+	});
