@@ -5,12 +5,13 @@ define([
 'localStorage',
 /*'UserListView',*/
 //'ViewsProjectList',
+'views/users/create',
 'views/users/list',
 'views/projects/list',
 'collections/project'
 //'TestListView'
-//], function($, _, Backbone, LocalStorage, UserListView, TestListView ){
-], function($, _, Backbone, UserListView, ProjectListView){
+//], function($, _, Backbone, LocalStorage, UserCreateView, UserListView, TestListView ){
+], function($, _, Backbone, LocalStorage, UserCreateView, UserListView, ProjectListView){
 //console.log(typeof($) + ', ' + typeof(_) + ', ' + typeof(Backbone) + ' => ' + typeof(UserListView));
 
   var AppRouter = Backbone.Router.extend({
