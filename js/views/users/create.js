@@ -17,12 +17,13 @@ define([
     var user = new User();
     if (!$('.edit-user-form firstName').val()) return;
     console.log($('.edit-user-form firstName').val());
-    Movies.create({name: $('.edit-user-form firstName').val()});
+    UsersCollection.create({name: $('.edit-user-form firstName').val()});
   },
 
     render: function(options) {
       // var that = this;
       // that.user = new User({id: options.id});
+      console.log('render');
       this.$el.html(this.template({}));
     }
   });
