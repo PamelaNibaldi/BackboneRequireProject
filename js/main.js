@@ -44,8 +44,9 @@ require.config({
 
 /*----------------- Collections --------------------*/
 
-//      UserModel : 'models/users',
+      UserModel : 'models/users',
       ProjectsCollection : 'collections/project',
+      UsersCollection : 'collections/users'
 //      TestModel : 'models/test'
 
 /*----------------- Collections --------------------*/

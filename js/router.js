@@ -8,7 +8,9 @@ define([
 'views/users/create',
 'views/users/list',
 'views/projects/list',
-'collections/project'
+'collections/project',
+'collections/users',
+'models/users'
 //'TestListView'
 //], function($, _, Backbone, LocalStorage, UserCreateView, UserListView, TestListView ){
 ], function($, _, Backbone, LocalStorage, UserCreateView, UserListView, ProjectListView){
@@ -36,11 +38,10 @@ define([
       // 'views/users/list'
 
     app_router.on('route:createUser', function(){
-      console.log('entra');
         // Call render on the module we loaded in via the dependency array
         // 'views/projects/list'
-        var UserCreateView = new UserCreateView();
-        UserCreateView.render();
+        var userCreateView = new UserCreateView();
+        userCreateView.render();
     });
 
      app_router.on('route:showProjects', function(){

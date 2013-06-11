@@ -2,11 +2,11 @@ define([
   'jquery',
   'underscore',
   'backbone',
-  'collections/users',
+  'models/users',
   'text!templates/users/edit.html'
-], function($, _, Backbone, UsersCollection, usersEditTemplate){
+], function($, _, Backbone, User, usersEditTemplate){
   var UsersEditView = Backbone.View.extend({
-    tagName:  '#content',
+    el: $('#container'),
     template: _.template(usersEditTemplate),
     events: {
       'submit .edit-user-form': 'saveUser'
@@ -20,11 +20,13 @@ define([
     UsersCollection.create({name: $('.edit-user-form firstName').val()});
   },
 
-    render: function(options) {
+    render: function() {
       // var that = this;
       // that.user = new User({id: options.id});
       console.log('render');
-      this.$el.html(this.template({}));
+      var variables = { name: 'Juan' };
+      var compiledTemplate = _.template( usersEditTemplate,{});
+      this.$el.html(compiledTemplate);
     }
   });
   return UsersEditView;

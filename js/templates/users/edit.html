@@ -1,22 +1,18 @@
 <form class="edit-user-form">
-  <legend><%= user ? 'Edit' : 'New' %> User</legend>
+  <legend>New User</legend>
     <label>User ID</label>
-    <input name="id" type="text" value="<%= user ? user.get('id') : '' %>">
+    <input name="id" type="text" value=''>
     <label>First Name</label>
-    <input name="firstname" type="text" value="<%= user ? user.get('firstname') : '' %>">
+    <input name="firstname" type="text" value=''>
     <label>Last Name</label>
-    <input name="lastname" type="text" value="<%= user ? user.get('lastname') : '' %>">
+    <input name="lastname" type="text" value=''>
     <label>Date of birth</label>
-    <input name="birth" type="text" value="<%= user ? user.get('birth') : '' %>">
+    <input name="birth" type="text" value=''>
     <label>Date of birth</label>
-    <input name="birth" type="text" value="<%= user ? user.get('birth') : '' %>"><label>E-mail</label>
-    <input name="email" type="text" value="<%= user ? user.get('email') : '' %>">
+    <input name="birth" type="text" value=''><label>E-mail</label>
+    <input name="email" type="text" value=''>
     <label>Address</label>
-    <input name="address" type="text" value="<%= user ? user.get('address') : '' %>">
+    <input name="address" type="text" value=''>
     <hr />
-   <button type="submit" class="btn"><%= user ? 'Update' : 'Create' %></button>
-   <% if(user) { %>
-    <input type="hidden" name="id" value="<%= user.id %>" />
-    <button data-user-id="<%= user.id %>" class="btn btn-danger delete">Delete</button>
-   <% }; %>
+   <button type="submit" class="btn">Create</button>
 </form>
