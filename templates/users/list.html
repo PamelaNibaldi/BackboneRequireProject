@@ -1,0 +1,23 @@
+<a href="#/new" class="btn btn-primary">New</a>
+    <hr />
+    <table class="table striped">
+      <thead>
+        <tr>
+          <th>User Id</th><th>First Name</th><th>Last Name</th><th>Date of Birth</th><th>Age</th><th>Address</th><th>Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% _.each(users, function(user) { %>
+          <tr>
+            <td><%= user.get('id') %></td>
+            <td><%= user.get('firstname') %></td>
+            <td><%= user.get('lastname') %></td>
+            <td><%= user.get('birth') %></td>
+            <td><%= user.get('age') %></td>
+            <td><%= user.get('address') %></td>
+            <td><%= user.get('email') %></td>
+            
+          </tr>
+        <% }); %>
+      </tbody>
+</table>
