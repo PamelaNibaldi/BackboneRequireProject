@@ -1,1 +1,24 @@
 templates list.html
+<a href="#/new" class="btn btn-primary">New</a>
+    <hr />
+    <table class="table striped">
+      <thead>
+        <tr>
+          <th>User Id</th><th>First Name</th><th>Last Name</th><th>Date of Birth</th><th>Age</th><th>Address</th><th>Email</th>
+        </tr>
+      </thead>
+      <tbody>
+       <% _.each(projects, function(projects) { %>
+          <tr>
+            <td><%= projects.get('id') %></td>
+            <td><%= projects.get('firstname') %></td>
+            <td><%= projects.get('lastname') %></td>
+            <td><%= projects.get('birth') %></td>
+            <td><%= projects.get('age') %></td>
+            <td><%= projects.get('address') %></td>
+            <td><%= projects.get('email') %></td>
+            
+          </tr>
+        <% }); %> 
+      </tbody>
+</table>
