@@ -10,5 +10,5 @@ define([
     localStorage: new LocalStorage('users-local-storage')
   });
   // You don't usually return a collection instantiated
-  return UsersCollection;
+  return new UsersCollection();
 });

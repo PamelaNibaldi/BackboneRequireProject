@@ -6,9 +6,9 @@ define([
 
     defaults: {
 
-          user: 'Dario',
-          age: 32,
-          team: 'Nob'
+          name: '',
+          age: 0,
+          id: 0
 
     },
 
