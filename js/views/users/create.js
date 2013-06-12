@@ -22,6 +22,7 @@ define([
     var age = $('#age').val();
     user.set({id: id , name: name, lastName: lastName, age: age});
     UsersCollection.add(user);
+    user.save();
   },
 
     render: function() {
