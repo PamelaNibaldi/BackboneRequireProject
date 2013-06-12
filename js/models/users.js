@@ -5,12 +5,10 @@ define([
   var UserModel = Backbone.Model.extend({
 
     defaults: {
-
-          name: '',
-          lastName: '',
-          age: -1,
-          id: -1
-
+      name: '',
+      lastName: '',
+      age: -1,
+      id: -1
     }
 
 

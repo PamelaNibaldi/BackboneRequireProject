@@ -1,43 +1,42 @@
-/*
 define([
   'jquery',
   'underscore',
   'backbone',
-  // Pull in the Collection module from above
+  'models/users',
   'collections/users',
   'text!templates/users/edit.html'
-], function($, _, Backbone, UsersCollection, projectsListTemplate){
+], function($, _, Backbone, User, UsersCollection, usersEditTemplate){
   var UsersEditView = Backbone.View.extend({
-    tagName:  'div',
-    template: _.template($.get('/templates/users/edit.html').html()),
+    el: $('#container'),
+    template: _.template(usersEditTemplate),
     events: {
-      'submit .edit-user-form': 'saveUser'
+      'click #editBtn': 'editUser'
     },
 
-  saveUser: function (ev) {
-    var userDetails = $(ev.currentTarget).serializeObject();
-    var user = new User();
-    user.save(userDetails, {
-      success: function (user) {
-       // router.navigate('', {trigger:true});
-      }
-    });
-    return false;
-  },
+    saveUser: function () {
+      var id = $('#id').val();
+      if (!id) return; //not allowed to create a user without id
+      var user = new User();
+      var name = $('#name').val();
+      var lastName = $('#lastName').val();
+      var age = $('#age').val();
+      user.set({id: id , name: name, lastName: lastName, age: age});
+      user.save();
+    },
 
-    render: function(options) {
-      var that = this;
-      if(options.id) {
-        that.user = new User({id: options.id});
-        that.user.fetch({
-          success: function (user) {
-            this.$el.html(this.template(this.model.toJSON()));
-          }
-        });
-      } else {
-        this.$el.html(this.template(this.model.toJSON()));
+    render: function(id) {
+      var compiledTemplate;
+      var user;
+      if(id) {
+          user = new User({id: id});
+          user.fetch({
+            success: function (user) {
+              compiledTemplate = this.template(user.toJSON());
+              this.$el.html(compiledTemplate);
+            }
+          });
       }
     }
   });
   return UsersEditView;
-});*/
+});
