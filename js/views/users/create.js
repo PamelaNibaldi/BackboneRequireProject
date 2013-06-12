@@ -10,8 +10,7 @@ define([
     el: $('#container'),
     template: _.template(usersCreateTemplate),
     events: {
-      'click #createBtn': 'saveUser',
-      'click #editBtn': 'editUser'
+      'click #createBtn': 'saveUser'
     },
 
     saveUser: function () {

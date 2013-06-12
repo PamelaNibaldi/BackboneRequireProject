@@ -22,7 +22,7 @@ define([
       // Define some URL routes
       'projects': 'showProjects',
       'users/create': 'createUser',
-      'users/:id': 'editUser',
+      'users/edit/:id': 'editUser',
 
       // Default
       '*actions': 'defaultAction'

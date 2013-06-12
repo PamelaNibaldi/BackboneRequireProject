@@ -12,29 +12,22 @@ define([
     events: {
       'click #editBtn': 'editUser'
     },
-
-    saveUser: function () {
-      var id = $('#id').val();
-      if (!id) return; //not allowed to create a user without id
-      var user = new User();
+    editUser: function () {
+      var id = $('#id').text();
       var name = $('#name').val();
       var lastName = $('#lastName').val();
       var age = $('#age').val();
-      user.set({id: id , name: name, lastName: lastName, age: age});
-      user.save();
+      var user = new User();
+      user.set({id: id, name: name, lastName: lastName, age: age });
+      localStorage.setItem('users-local-storage-'+id, JSON.stringify(user));
     },
 
     render: function(id) {
       var compiledTemplate;
-      var user;
       if(id) {
-          user = new User({id: id});
-          user.fetch({
-            success: function (user) {
-              compiledTemplate = this.template(user.toJSON());
-              this.$el.html(compiledTemplate);
-            }
-          });
+        var userData = localStorage.getItem('users-local-storage-'+id);
+        compiledTemplate = this.template(JSON.parse(userData));
+        this.$el.html(compiledTemplate);
       }
     }
   });
