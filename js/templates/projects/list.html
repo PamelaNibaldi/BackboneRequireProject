@@ -1,5 +1,5 @@
-templates list.html
-<a href="#/new" class="btn btn-primary">New</a>
+
+<a href="#/users/create" class="BotonNew">New User</a>
     <hr />
     <table class="table striped">
       <thead>
@@ -8,15 +8,15 @@ templates list.html
         </tr>
       </thead>
       <tbody>
-       <% _.each(projects, function(projects) { %>
+       <% _.each(users, function(users) { %>
           <tr>
-            <td><%= projects.get('id') %></td>
-            <td><%= projects.get('firstname') %></td>
-            <td><%= projects.get('lastname') %></td>
-            <td><%= projects.get('birth') %></td>
-            <td><%= projects.get('age') %></td>
-            <td><%= projects.get('address') %></td>
-            <td><%= projects.get('email') %></td>
+            <td><%= users.id %></td>
+            <td><%= users.name %></td>
+            <td><%= users.lastname %></td>
+            <td><%= users.birth %></td>
+            <td><%= users.age %></td>
+            <td><%= users.address %></td>
+            <td><%= users.email %></td>
             
           </tr>
         <% }); %> 
