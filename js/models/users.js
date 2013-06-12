@@ -7,10 +7,12 @@ define([
     defaults: {
 
           name: '',
-          age: 0,
-          id: 0
+          lastName: '',
+          age: -1,
+          id: -1
 
-    },
+    }
+
 
   });
   return UserModel;

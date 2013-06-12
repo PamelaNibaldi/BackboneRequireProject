@@ -13,15 +13,14 @@ define([
       'click #createBtn': 'saveUser'
     },
 
-  saveUser: function (ev) {
-    //var userDetails = $(ev.currentTarget).serializeObject();
-    //console.log(userDetails);
+  saveUser: function () {
+    var id = $('#id').val();
+    if (!id) return; //not allowed to create a user without id
     var user = new User();
-    user.name = $('#name').val();
-    user.id = $('#id').val();
-    //if (!$('.edit-user-form firstName').val()) return;
-    console.log('user: '+user);
-    //this.model.save({name: $('.edit-user-form id').val()});
+    var name = $('#name').val();
+    var lastName = $('#lastName').val();
+    var age = $('#age').val();
+    user.set({id: id , name: name, lastName: lastName, age: age});
     UsersCollection.add(user);
   },
 
