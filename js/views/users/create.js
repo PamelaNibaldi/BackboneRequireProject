@@ -7,8 +7,11 @@ define([
   'text!templates/users/create.html'
 ], function($, _, Backbone, User, UsersCollection, usersCreateTemplate){
   var UsersEditView = Backbone.View.extend({
+
     el: $('#container'),
+
     template: _.template(usersCreateTemplate),
+
     events: {
       'click #createBtn': 'saveUser'
     },
@@ -21,18 +24,27 @@ define([
       var localStorage = UsersCollection.localStorage.findAll();
       var total = localStorage.length;
       var id = total + 1;
+
+      user.on('invalid', function(model, error) {
+        alert('ERROR:\n'+error.reduce(function(el, el2) {
+          return el + ' \n' + el2;
+        }));
+      });
+
       user.set({id: id , name: $name.val(), lastName: $lastName.val(), age: $age.val()});
       UsersCollection.add(user);
-      user.save();
-      $name.val('');
-      $lastName.val('');
-      $age.val('');
+      if (user.save()) { //if user was inserted
+        $name.val('');
+        $lastName.val('');
+        $age.val('');
+      }
     },
 
     render: function(id) {
       compiledTemplate = this.template({});
       this.$el.html(compiledTemplate);
     }
+
   });
   return UsersEditView;
 });
