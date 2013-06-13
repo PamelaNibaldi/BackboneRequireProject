@@ -14,22 +14,17 @@ define([
     },
 
     saveUser: function () {
-      var id = $('#id').val();
-      if (!id) return; //not allowed to create a user without id
+     
       var user = new User();
       var name = $('#name').val();
       var lastName = $('#lastName').val();
       var age = $('#age').val();
+      var localStorage = UsersCollection.localStorage.findAll();
+      var total = localStorage.length;
+      var id = total + 1;
       user.set({id: id , name: name, lastName: lastName, age: age});
       UsersCollection.add(user);
       user.save();
-    },
-
-      deleteUser: function () {
-
-      var id = $('#id').val();
-      window.localStorage.removeItem( "users-local-storage-2" );
-
     },
 
     render: function(id) {
