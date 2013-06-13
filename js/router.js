@@ -7,10 +7,9 @@ define([
 'views/users/delete',
 'views/users/edit',
 'views/users/list',
-'views/projects/list',
 'collections/users',
 'models/users'
-], function($, _, Backbone, LocalStorage, UserCreateView, UsersDeleteView, UserEditView, UserListView, ProjectListView){
+], function($, _, Backbone, LocalStorage, UserCreateView, UsersDeleteView, UserEditView, UserListView){
 //], function($, _, Backbone, LocalStorage, UserCreateView, UsersDeleteView, UserEditView, UserListView){
 //console.log(typeof($) + ', ' + typeof(_) + ', ' + typeof(Backbone) + ' => ' + typeof(UserListView));
 
@@ -51,8 +50,8 @@ define([
 
       app_router.on('route:defaultAction', function(actions){
         // We have no matching route, lets just log what the URL was
-        var projectListView = new ProjectListView();
-        projectListView.render();
+        var userListView = new UserListView();
+        userListView.render();
       });
       Backbone.history.start();
 
