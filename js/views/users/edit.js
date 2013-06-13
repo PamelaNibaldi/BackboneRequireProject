@@ -13,7 +13,7 @@ define([
       'click #editBtn': 'editUser'
     },
     editUser: function () {
-      var id = $('#id').text();
+      var id = $('#editId').val();
       var name = $('#name').val();
       var lastName = $('#lastName').val();
       var age = $('#age').val();
