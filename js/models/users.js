@@ -11,10 +11,10 @@ define([
     },
   validate: function(attrs) {
     var invalid=[];
-    if (attrs.name==='') invalid.push('User name is required.');
-    if (attrs.lastName==='') invalid.push('User last name is required.');
-    if (attrs.age<=0 || attrs.age >=100 ) invalid.push('User\'s age is required, and must contain a valid value.');
-    if (attrs.id===-1) invalid.push('User id is not valid');
+    if (attrs.name.match(/\d/) || attrs.name==='') invalid.push('User name is required, and must contain a valid value.');
+    if (attrs.lastName.match(/\d/) || attrs.lastName==='') invalid.push('User last name is required, and must contain a valid value.');
+    if (isNaN(attrs.age) || attrs.age<=0 || attrs.age >=100 ) invalid.push('User\'s age is required, and must contain a valid value.');
+    if (isNaN(attrs.id) || attrs.id<=0 || attrs.id >=100) invalid.push('User id is not valid');
 
     if (invalid.length>0) return invalid;
   }
