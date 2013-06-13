@@ -1,14 +1,15 @@
-Eliminar usuario
-
+<h1>Delet User</h1>
 <div class="edit-user-form">
     <input type="hidden" id="deleteId" value="<%= id %>">
-    <h1>New User</h1>
-    <label>Name</label>
-    <%= name %>
-    <label>Last Name</label>
-    <%= lastName %>
-    <label>Age</label>
-    <%= age %>
+        <div class="items">
+           <label>Name: </label><%= name %>
+        </div>
+        <div class="items">
+            <label>Last Name: </label><%= lastName %>
+       </div>
+        <div class="items">
+           <label>Age: </label><%= age %>
+        </div>
     <hr />
     <button id="deleteBtn" class="btn">Delete</button>
 </div>

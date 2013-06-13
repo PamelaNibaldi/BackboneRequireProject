@@ -20,7 +20,7 @@ define([
       var user = new User();
       user.set({id: id, name: name, lastName: lastName, age: age });
       localStorage.setItem('users-local-storage-'+id, JSON.stringify(user));
-      document.location.href = '#/projects';
+      document.location.href = '';
     },
 
     render: function(id) {

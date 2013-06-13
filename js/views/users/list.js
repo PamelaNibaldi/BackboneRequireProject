@@ -4,12 +4,10 @@ define([
   'backbone',
   // Pull in the Collection module from above
   'collections/users',
-//  'collections/projects',
   'models/users',
   'text!templates/users/list.html'
 ], function($, _, Backbone, UsersCollection, UserModels, projectsListTemplate){
-
-  var UserListView = Backbone.View.extend({
+  var ProjectListView = Backbone.View.extend({
     el: $("#container"),
     render: function(){
       var localStorage = UsersCollection.localStorage.findAll();
@@ -20,5 +18,5 @@ define([
   });
 
   // Returning instantiated views can be quite useful for having "state"
-  return UserListView;
+  return ProjectListView;
 });
