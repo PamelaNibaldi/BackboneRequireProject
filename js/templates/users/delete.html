@@ -1,6 +1,5 @@
 <h1>Delete User</h1>
 <div class="edit-user-form">
-    <input type="hidden" id="deleteId" value="<%= id %>">
         <div class="items">
            <label>Name: </label><%= name %>
         </div>
@@ -11,6 +10,6 @@
            <label>Age: </label><%= age %>
         </div>
     <hr />
-    <button id="deleteBtn" class="btn">Delete</button>
+    <button id="<%= id %>" class="btn deleteBtn">Delete</button>
     <button class="btn"><a href="">List</a></button>
 </div>

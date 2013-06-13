@@ -13,7 +13,7 @@ define([
     template: _.template(usersDeleteTemplate),
 //    template: _.template( $( '#deleteTemplate').html() ),
     events: {
-      'click #deleteBtn': 'deleteUser'
+      'click .deleteBtn': 'deleteUser'
     },
 
     deleteUser: function () {
@@ -22,7 +22,7 @@ define([
 
       if (confirm) {
 
-        var id = $('#deleteId').val();
+        var id = $('.deleteBtn').attr( 'id' );
         window.localStorage.removeItem( "users-local-storage-" + id );
 
       };
