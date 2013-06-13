@@ -12,16 +12,22 @@ define([
     events: {
       'click .editBtn': 'editUser'
     },
+
     editUser: function () {
       var id = $('.editBtn').attr('id');
       var name = $('input[name="firstName"]').val();
       var lastName = $('input[name="lastName"]').val();
       var age = $('input[name="age"]').val();
-      console.log(id);
       var user = new User();
-      user.set({id: id, name: name, lastName: lastName, age: age });
-      localStorage.setItem('users-local-storage-'+id, JSON.stringify(user));
+      user.on('invalid', function(model, error) {
+        alert('ERROR:\n'+error.reduce(function(el, el2) {
+          return el + ' \n' + el2;
+        }));
+      });
+      if(user.set({id: id, name: name, lastName: lastName, age: age}, {validate:true})) {
+        localStorage.setItem('users-local-storage-'+id, JSON.stringify(user));
       document.location.href = '';
+      }
     },
 
     render: function(id) {
