@@ -3,25 +3,20 @@ define([
 'underscore',
 'backbone',
 'localStorage',
-/*'UserListView',*/
-//'ViewsProjectList',
 'views/users/create',
 'views/users/delete',
 'views/users/edit',
 'views/users/list',
 'views/projects/list',
-'collections/project',
 'collections/users',
 'models/users'
-//'TestListView'
-//], function($, _, Backbone, LocalStorage, UserCreateView, UserListView, TestListView ){
 ], function($, _, Backbone, LocalStorage, UserCreateView, UsersDeleteView, UserEditView, UserListView, ProjectListView){
+//], function($, _, Backbone, LocalStorage, UserCreateView, UsersDeleteView, UserEditView, UserListView){
 //console.log(typeof($) + ', ' + typeof(_) + ', ' + typeof(Backbone) + ' => ' + typeof(UserListView));
 
   var AppRouter = Backbone.Router.extend({
     routes: {
       // Define some URL routes
-      'projects': 'showProjects',
       'users/create': 'createUser',
       'users/delet/:id': 'deleteUser',
       'users/edit/:id': 'editUser',
@@ -37,19 +32,11 @@ define([
       // As above, call render on our loaded module
       // 'views/users/list'
 
-    app_router.on('route:createUser', function(){
+      app_router.on('route:createUser', function(){
         // Call render on the module we loaded in via the dependency array
         // 'views/projects/list'
         var userCreateView = new UserCreateView();
         userCreateView.render();
-    });
-
-     app_router.on('route:showProjects', function(){
-
-        // Call render on the module we loaded in via the dependency array
-        // 'views/projects/list'
-        var projectListView = new ProjectListView();
-        projectListView.render();
       });
 
       app_router.on('route:editUser', function(id){
@@ -64,7 +51,8 @@ define([
 
       app_router.on('route:defaultAction', function(actions){
         // We have no matching route, lets just log what the URL was
-        console.log('No route:', actions);
+        var projectListView = new ProjectListView();
+        projectListView.render();
       });
       Backbone.history.start();
 
