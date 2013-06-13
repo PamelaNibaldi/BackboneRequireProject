@@ -27,7 +27,7 @@ define([
 
       };
 
-      document.location.href = '#/projects';
+      document.location.href = '';
       return;
 
     },
