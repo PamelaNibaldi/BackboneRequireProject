@@ -37,17 +37,12 @@ require.config({
 /*----------------- Models --------------------*/
 
       UserModel : 'models/users',
-      ProjectsModel : 'models/projects',
-      TestModel : 'models/test',
 
 /*----------------- Models --------------------*/
 
 /*----------------- Collections --------------------*/
 
-      UserModel : 'models/users',
-      ProjectsCollection : 'collections/project',
       UsersCollection : 'collections/users'
-//      TestModel : 'models/test'
 
 /*----------------- Collections --------------------*/
 
