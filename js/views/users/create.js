@@ -14,17 +14,19 @@ define([
     },
 
     saveUser: function () {
-     
       var user = new User();
-      var name = $('#name').val();
-      var lastName = $('#lastName').val();
-      var age = $('#age').val();
+      var $name = $('#name');
+      var $lastName = $('#lastName');
+      var $age = $('#age');
       var localStorage = UsersCollection.localStorage.findAll();
       var total = localStorage.length;
       var id = total + 1;
-      user.set({id: id , name: name, lastName: lastName, age: age});
+      user.set({id: id , name: $name.val(), lastName: $lastName.val(), age: $age.val()});
       UsersCollection.add(user);
       user.save();
+      $name.val('');
+      $lastName.val('');
+      $age.val('');
     },
 
     render: function(id) {

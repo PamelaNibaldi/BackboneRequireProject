@@ -13,12 +13,12 @@ define([
       'click #editBtn': 'editUser'
     },
     editUser: function () {
-      var id = $('#id').text();
-      var name = $('#name').val();
-      var lastName = $('#lastName').val();
-      var age = $('#age').val();
+      var $id = $('#id');
+      var $name = $('#name');
+      var $lastName = $('#lastName');
+      var $age = $('#age');
       var user = new User();
-      user.set({id: id, name: name, lastName: lastName, age: age });
+      user.set({id: id.text(), name: name.val(), lastName: lastName.val(), age: age.val() });
       localStorage.setItem('users-local-storage-'+id, JSON.stringify(user));
     },
 
