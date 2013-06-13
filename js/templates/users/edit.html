@@ -1,12 +1,11 @@
  <h1>Edit User</h1>
 <div class="edit-user-form">
-	 <input type="hidden" id="editId" value="<%= id %>">
     <label>First Name</label>
-    <input name="firstname" type="text" id="name" value=<%= name%>>
+    <input name="firstName" type="text" value=<%= name%>>
     <label>Last Name</label>
-    <input name="lastname" type="text" id="lastName" value=<%= lastName%>>
+    <input name="lastName" type="text" value=<%= lastName%>>
     <label>Age</label>
-    <input name="age" type="text" id="age" value=<%= age%>>
+    <input name="age" type="text" value=<%= age%>>
     <hr />
-    <button id="editBtn" class="btn">Update</button>
+    <button id="<%= id %>" class="btn editBtn">Update</button>
 </div>

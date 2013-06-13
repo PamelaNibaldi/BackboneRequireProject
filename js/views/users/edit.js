@@ -10,13 +10,14 @@ define([
     el: $('#container'),
     template: _.template(usersEditTemplate),
     events: {
-      'click #editBtn': 'editUser'
+      'click .editBtn': 'editUser'
     },
     editUser: function () {
-      var id = $('#editId').val();
-      var name = $('#name').val();
-      var lastName = $('#lastName').val();
-      var age = $('#age').val();
+      var id = $('.editBtn').attr('id');
+      var name = $('input[name="firstName"]').val();
+      var lastName = $('input[name="lastName"]').val();
+      var age = $('input[name="age"]').val();
+      console.log(id);
       var user = new User();
       user.set({id: id, name: name, lastName: lastName, age: age });
       localStorage.setItem('users-local-storage-'+id, JSON.stringify(user));

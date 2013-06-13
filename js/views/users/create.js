@@ -13,7 +13,7 @@ define([
     template: _.template(usersCreateTemplate),
 
     events: {
-      'click #createBtn': 'saveUser'
+      'click .createBtn': 'saveUser'
     },
 
     saveUser: function () {
