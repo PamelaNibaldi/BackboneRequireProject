@@ -6,6 +6,7 @@ define([
 /*'UserListView',*/
 //'ViewsProjectList',
 'views/users/create',
+'views/users/delete',
 'views/users/edit',
 'views/users/list',
 'views/projects/list',
@@ -14,7 +15,7 @@ define([
 'models/users'
 //'TestListView'
 //], function($, _, Backbone, LocalStorage, UserCreateView, UserListView, TestListView ){
-], function($, _, Backbone, LocalStorage, UserCreateView, UserEditView, UserListView, ProjectListView){
+], function($, _, Backbone, LocalStorage, UserCreateView, UsersDeleteView, UserEditView, UserListView, ProjectListView){
 //console.log(typeof($) + ', ' + typeof(_) + ', ' + typeof(Backbone) + ' => ' + typeof(UserListView));
 
   var AppRouter = Backbone.Router.extend({
@@ -22,13 +23,11 @@ define([
       // Define some URL routes
       'projects': 'showProjects',
       'users/create': 'createUser',
+      'users/delet/:id': 'deleteUser',
       'users/edit/:id': 'editUser',
 
       // Default
       '*actions': 'defaultAction'
-    },
-    showProjects: function() {
-      console.log('llegaaaag3');
     }
   });
 
@@ -56,6 +55,11 @@ define([
       app_router.on('route:editUser', function(id){
         var userEditView = new UserEditView();
         userEditView.render(id);
+      });
+
+      app_router.on('route:deleteUser', function(id){
+        var usersDeleteView = new UsersDeleteView();
+        usersDeleteView.render(id);
       });
 
       app_router.on('route:defaultAction', function(actions){
