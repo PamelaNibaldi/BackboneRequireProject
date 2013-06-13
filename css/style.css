@@ -67,14 +67,16 @@ span{
     margin-left: 10px;
 }
 .items{
-    width: 200px;
+    width: 300px;
     margin: auto;
 
+}
+.inputAge{
+    margin-left: 43px;
 }
 .items label{
     float:left;
 }
-
 .notShow {
     visibility: hidden;
 }
