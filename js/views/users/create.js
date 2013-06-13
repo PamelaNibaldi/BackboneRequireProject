@@ -18,9 +18,9 @@ define([
 
     saveUser: function () {
       var user = new User();
-      var $name = $('#name');
-      var $lastName = $('#lastName');
-      var $age = $('#age');
+      var $name = $('input[name="firstName"]');
+      var $lastName = $('input[name="lastName"]');
+      var $age = $('input[name="age"]');
       var localStorage = UsersCollection.localStorage.findAll();
       var total = localStorage.length;
       var id = total + 1;
