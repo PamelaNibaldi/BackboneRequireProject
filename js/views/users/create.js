@@ -37,9 +37,9 @@ define([
         $name.val('');
         $lastName.val('');
         $age.val('');
-        $('.updateMsg').html('User was successfully inserted to database!');
+        $('.updateMsg').removeClass('notShow');
         setTimeout(function() {
-          $('.updateMsg').fadeOut('slow');
+          $('.updateMsg').addClass('notShow');
         }, 2000);
       }
     },
