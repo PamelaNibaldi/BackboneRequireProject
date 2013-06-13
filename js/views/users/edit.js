@@ -4,7 +4,7 @@ define([
   'backbone',
   'models/users',
   'collections/users',
-  'text!templates/users/edit.html'
+  'text!../../../templates/users/edit.html'
 ], function($, _, Backbone, User, UsersCollection, usersEditTemplate){
   var UsersEditView = Backbone.View.extend({
     el: $('#container'),

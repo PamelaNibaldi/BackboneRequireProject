@@ -5,7 +5,7 @@ define([
   // Pull in the Collection module from above
   'collections/users',
   'models/users',
-  'text!templates/users/list.html'
+  'text!../../../templates/users/list.html'
 ], function($, _, Backbone, UsersCollection, UserModels, projectsListTemplate){
   var ProjectListView = Backbone.View.extend({
     el: $("#container"),

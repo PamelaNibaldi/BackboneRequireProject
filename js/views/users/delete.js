@@ -6,7 +6,8 @@ define([
   'models/users',
   'collections/users',
   'router',
-  'text!templates/users/delete.html'
+  'text!../../../templates/users/delete.html'
+//  'text!templates/users/delete.html'
 ], function($, _, Backbone, User, UsersCollection, Router, usersDeleteTemplate){
   var UsersDeleteView = Backbone.View.extend({
     el: $('#container'),
