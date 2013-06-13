@@ -1,11 +1,24 @@
-User
-
-<script type="text/template" id="search_template"> 
-<label>Search</label> <input type="text" id="search_input" /> <input type="button" id="search_button" value="Search" /> 
-</script>
-
-
-<form class="edit-user-form">
-  <legend><%= user ? 'Edit' : 'New' %> User <%= user %></legend>
-  
-</form>
+<a href="#/users/create" class="BotonNew">New User</a>
+    <hr />
+    <table class="table striped">
+      <thead>
+        <tr>
+          <th>User Id</th><th>First Name</th><th>Last Name</th><th>Date of Birth</th><th>Age</th><th>Address</th><th>Email</th><th></th><th></th>
+        </tr>
+      </thead>
+      <tbody>
+       <% _.each(users, function(users) { %>
+          <tr>
+            <td><%= users.id %></td>
+            <td><%= users.name %></td>
+            <td><%= users.lastname %></td>
+            <td><%= users.birth %></td>
+            <td><%= users.age %></td>
+            <td><%= users.address %></td>
+            <td><%= users.email %></td>
+            <td><a class="btn" href="#/users/edit/<%= users.id %>">Edit</a></td>
+            <td><a class="btn" href="#/users/delet/<%= users.id %>">Eliminar</a></td>
+          </tr>
+        <% }); %> 
+      </tbody>
+</table>
