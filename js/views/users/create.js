@@ -25,6 +25,13 @@ define([
       user.save();
     },
 
+      deleteUser: function () {
+
+      var id = $('#id').val();
+      window.localStorage.removeItem( "users-local-storage-2" );
+
+    },
+
     render: function(id) {
       compiledTemplate = this.template({});
       this.$el.html(compiledTemplate);
