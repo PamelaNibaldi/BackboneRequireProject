@@ -49,7 +49,7 @@ define([
         localStorage.setItem('users-local-storage-'+id, JSON.stringify(user));
         showMsg($messageEl, 'User was successfully edited!');
         var willCountDown = countDown(3000);
-        willCountDown.then(function() {//transition to listing page
+        willCountDown.then(hideMsg($messageEl)).then(function() {//transition to listing page
           document.location.href = '';
         });
       }
