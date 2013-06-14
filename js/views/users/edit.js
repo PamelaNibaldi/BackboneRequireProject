@@ -6,16 +6,22 @@ define([
   'collections/users',
   'text!../../../templates/users/edit.html'
 ], function($, _, Backbone, User, UsersCollection, usersEditTemplate){
-  var messageDisplay = function(msg, classToAdd) {
-    var $messageEl = $('.updateMsg');
+  var hideMsg = function($messageEl, classToRemove) {
+    $messageEl.addClass('notShow');
+    $messageEl.removeClass(classToRemove);
+  };
+  var showMsg = function($messageEl, msg, classToAdd) {
     $messageEl.html(msg);
     $messageEl.addClass(classToAdd);
     $messageEl.removeClass('notShow');
-    setTimeout (function() {
-      $messageEl.addClass('notShow');
-      $messageEl.removeClass(classToAdd);
-    }, 3000);
   };
+  function countDown(time) {
+    var timer = $.Deferred();
+    setTimeout(function () {
+      timer.resolve();
+    }, time);
+    return timer.promise();
+  }
   var UsersEditView = Backbone.View.extend({
     el: $('#content'),
     template: _.template(usersEditTemplate),
@@ -29,6 +35,7 @@ define([
       var lastName = $('input[name="lastName"]').val();
       var age = $('input[name="age"]').val();
       var user = new User();
+      var $messageEl = $('.updateMsg');
       user.on('invalid', function(model, error) {
         var msg = 'There were errors!!!<br>' + error.reduce(function(el, el2) {
           return el + ' <br>' + el2;
@@ -37,8 +44,11 @@ define([
       });
       if(user.set({id: id, name: name, lastName: lastName, age: age}, {validate:true})) {
         localStorage.setItem('users-local-storage-'+id, JSON.stringify(user));
-        messageDisplay('User was successfully edited!'); //displays notification message
-        document.location.href = '';
+        showMsg($messageEl, 'User was successfully edited!');
+        var willCountDown = countDown(10000);
+        willCountDown.then(hideMsg($messageEl)).then(function() {
+          document.location.href = '';
+        });
       }
     },
 
