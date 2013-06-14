@@ -80,3 +80,6 @@ span{
 .notShow {
     visibility: hidden;
 }
+.updateMsg {
+    color: #3A9C1B;
+}
