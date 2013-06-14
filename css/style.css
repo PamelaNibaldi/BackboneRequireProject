@@ -1,14 +1,28 @@
 #container{
-    width: 90%;
+    width: 50%;
     margin: auto;
     text-align: center;
 }
 .botonDiv{
-    float:left;
-    margin-left: 67px;
+   float:left;
 }
 hr{
     margin-top: 72px;
+
+}
+h1{
+    text-decoration:underline;
+}
+h2{
+    float:left;
+    text-decoration:underline;
+    font-style:italic;
+}
+.user-list-content{
+    float:left;
+}
+.last-col{
+    border-right:none;    
 }
 .BotonNew{
 	background:#e5e5e5;
@@ -56,9 +70,9 @@ table td{
     text-decoration: none;
 }
 .edit-user-form{
-    width: 60%;
-    margin: auto;
-    margin-top: 50px;
+   
+    float: left;
+    width: 100%;
 }
 input{
     margin-right: 40px;
@@ -79,11 +93,4 @@ span{
 }
 .notShow {
     visibility: hidden;
-}
-.updateMsg {
-    color: #3A9C1B;
-    font-weight: bold;
-}
-.error {
-    color: red;
 }
