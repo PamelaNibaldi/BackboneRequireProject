@@ -8,16 +8,19 @@ define([
 ], function($, _, Backbone, User, UsersCollection, usersEditTemplate){
   var hideMsg = function($messageEl, classToRemove) {
     $messageEl.addClass('notShow');
-    $messageEl.removeClass(classToRemove);
+    if(classToRemove)
+      $messageEl.removeClass(classToRemove);
   };
   var showMsg = function($messageEl, msg, classToAdd) {
     $messageEl.html(msg);
-    $messageEl.addClass(classToAdd);
-    $messageEl.removeClass('notShow');
+    if(classToAdd)
+      $messageEl.addClass(classToAdd);
+    $messageEl.toggleClass('notShow');
   };
-  function countDown(time) {
+  function countDown(time, $messageEl, classToRemove) {
     var timer = $.Deferred();
     setTimeout(function () {
+      hideMsg($messageEl,classToRemove);
       timer.resolve();
     }, time);
     return timer.promise();
@@ -42,14 +45,13 @@ define([
           return el + ' <br>' + el2;
         });
         showMsg($messageEl, msg, 'error');
-        var willCountDown = countDown(3000);
-        willCountDown.then(hideMsg($messageEl,'error'));
+        countDown(3000, $messageEl, 'error');
       });
       if(user.set({id: id, name: name, lastName: lastName, age: age}, {validate:true})) {
         localStorage.setItem('users-local-storage-'+id, JSON.stringify(user));
         showMsg($messageEl, 'User was successfully edited!');
-        var willCountDown = countDown(3000);
-        willCountDown.then(hideMsg($messageEl)).then(function() {//transition to listing page
+        var willCountDown = countDown(3000, $messageEl);
+        willCountDown.then(function() {//transition to listing page
           document.location.href = '';
         });
       }

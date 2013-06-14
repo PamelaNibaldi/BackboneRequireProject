@@ -9,11 +9,13 @@ define([
   var messageDisplay = function(msg, classToAdd) {
     var $messageEl = $('.updateMsg');
     $messageEl.html(msg);
-    $messageEl.addClass(classToAdd);
-    $messageEl.removeClass('notShow');
+    if(classToAdd)
+      $messageEl.toggleClass(classToAdd); //add
+    $messageEl.toggleClass('notShow'); //remove
     setTimeout(function() {
-        $messageEl.addClass('notShow');
-        $messageEl.removeClass(classToAdd);
+        $messageEl.toggleClass('notShow'); //add
+        if(classToAdd)
+          $messageEl.toggleClass(classToAdd);//remove
     }, 3000);
   };
 

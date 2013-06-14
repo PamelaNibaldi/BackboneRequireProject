@@ -22,7 +22,7 @@ h2{
     float:left;
 }
 .last-col{
-    border-right:none;    
+    border-right:none;
 }
 .BotonNew{
 	background:#e5e5e5;
@@ -70,7 +70,7 @@ table td{
     text-decoration: none;
 }
 .edit-user-form{
-   
+
     float: left;
     width: 100%;
 }
@@ -95,8 +95,8 @@ span{
     visibility: hidden;
 }
 .updateMsg {
-      color: #3A9C1B;
-     font-weight: bold;
+    color: #3A9C1B;
+    font-weight: bold;
 }
 .error {
     color: red;
