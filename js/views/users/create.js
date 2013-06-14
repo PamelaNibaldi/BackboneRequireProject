@@ -14,7 +14,6 @@ define([
     setTimeout(function() {
         $messageEl.addClass('notShow');
         $messageEl.removeClass(classToAdd);
-        //$messageEl.html('');
     }, 3000);
   };
 

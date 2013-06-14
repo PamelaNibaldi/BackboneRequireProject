@@ -22,6 +22,7 @@ define([
     }, time);
     return timer.promise();
   }
+
   var UsersEditView = Backbone.View.extend({
     el: $('#content'),
     template: _.template(usersEditTemplate),
@@ -40,13 +41,15 @@ define([
         var msg = 'There were errors!!!<br>' + error.reduce(function(el, el2) {
           return el + ' <br>' + el2;
         });
-        messageDisplay(msg, 'error');
+        showMsg($messageEl, msg, 'error');
+        var willCountDown = countDown(3000);
+        willCountDown.then(hideMsg($messageEl,'error'));
       });
       if(user.set({id: id, name: name, lastName: lastName, age: age}, {validate:true})) {
         localStorage.setItem('users-local-storage-'+id, JSON.stringify(user));
         showMsg($messageEl, 'User was successfully edited!');
-        var willCountDown = countDown(10000);
-        willCountDown.then(hideMsg($messageEl)).then(function() {
+        var willCountDown = countDown(3000);
+        willCountDown.then(function() {//transition to listing page
           document.location.href = '';
         });
       }
