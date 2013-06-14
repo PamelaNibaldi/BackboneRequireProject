@@ -8,7 +8,7 @@ define([
   'text!../../../templates/users/list.html'
 ], function($, _, Backbone, UsersCollection, UserModels, projectsListTemplate){
   var ProjectListView = Backbone.View.extend({
-    el: $("#container"),
+    el: $("#content"),
     render: function(){
       var localStorage = UsersCollection.localStorage.findAll();
      // Compile the template using Underscores micro-templating

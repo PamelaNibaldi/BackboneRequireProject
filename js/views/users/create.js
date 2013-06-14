@@ -6,21 +6,9 @@ define([
   'collections/users',
   'text!../../../templates/users/create.html'
 ], function($, _, Backbone, User, UsersCollection, usersCreateTemplate){
-  var messageDisplay = function(msg, classToAdd) {
-    var $messageEl = $('.updateMsg');
-    $messageEl.html(msg);
-    $messageEl.addClass(classToAdd);
-    $messageEl.removeClass('notShow');
-    setTimeout(function() {
-        $messageEl.addClass('notShow');
-        $messageEl.removeClass(classToAdd);
-        //$messageEl.html('');
-    }, 3000);
-  };
-
   var UsersEditView = Backbone.View.extend({
 
-    el: $('#container'),
+    el: $('#content'),
 
     template: _.template(usersCreateTemplate),
 
@@ -38,10 +26,9 @@ define([
       var id = total + 1;
 
       user.on('invalid', function(model, error) {
-        var msg = 'There were errors!!!<br>' + error.reduce(function(el, el2) {
-          return el + ' <br>' + el2;
-        });
-        messageDisplay(msg, 'error');
+        alert('ERROR:\n'+error.reduce(function(el, el2) {
+          return el + ' \n' + el2;
+        }));
       });
 
       user.set({id: id , name: $name.val(), lastName: $lastName.val(), age: $age.val()});
@@ -50,7 +37,10 @@ define([
         $name.val('');
         $lastName.val('');
         $age.val('');
-        messageDisplay('User was successfully added into the database!'); //displays notification message
+        $('.updateMsg').removeClass('notShow');
+        setTimeout(function() {
+          $('.updateMsg').addClass('notShow');
+        }, 2000);
       }
     },
 

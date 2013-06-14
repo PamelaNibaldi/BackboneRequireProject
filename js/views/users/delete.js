@@ -10,7 +10,7 @@ define([
 //  'text!templates/users/delete.html'
 ], function($, _, Backbone, User, UsersCollection, Router, usersDeleteTemplate){
   var UsersDeleteView = Backbone.View.extend({
-    el: $('#container'),
+    el: $('#content'),
     template: _.template(usersDeleteTemplate),
 //    template: _.template( $( '#deleteTemplate').html() ),
     events: {
