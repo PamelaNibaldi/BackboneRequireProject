@@ -4,7 +4,7 @@ define([
   'backbone',
   'models/users',
   'collections/users',
-  'text!../../../templates/users/create.html'
+  'text!../../../templates/users/edit.html'
 ], function($, _, Backbone, User, UsersCollection, usersCreateTemplate){
   var messageDisplay = function(msg, classToAdd) {
     var $messageEl = $('.updateMsg');
