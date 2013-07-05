@@ -5,9 +5,10 @@ define([
 	'underscore',
 	'backbone',
 	'localStorage',
+	'marionette',
 	'router'
 
-	], function( $, _, Backbone, LocalStorage, Router ){
+	], function( $, _, Backbone, LocalStorage, Marionette, Router ){
 
 		var initialize = function(){
 			Router.initialize();

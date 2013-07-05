@@ -3,13 +3,14 @@ define([
 'underscore',
 'backbone',
 'localStorage',
+'marionette',
 'views/users/create',
 'views/users/delete',
 'views/users/edit',
 'views/users/list',
 'collections/users',
 'models/users'
-], function($, _, Backbone, LocalStorage, UserCreateView, UsersDeleteView, UserEditView, UserListView){
+], function($, _, Backbone, LocalStorage, Marionette, UserCreateView, UsersDeleteView, UserEditView, UserListView){
 //], function($, _, Backbone, LocalStorage, UserCreateView, UsersDeleteView, UserEditView, UserListView){
 //console.log(typeof($) + ', ' + typeof(_) + ', ' + typeof(Backbone) + ' => ' + typeof(UserListView));
 

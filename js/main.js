@@ -22,6 +22,7 @@ require.config({
       underscore : 'libs/underscore/underscore',
       backbone : 'libs/backbone/backbone',
       localStorage: 'libs/backbone/backbone.localStorage',
+      marionette: 'libs/backbone/backbone.marionette',
 
 /*----------------- Libs --------------------*/
 

@@ -38,7 +38,7 @@ define([
       var total = localStorage.length;
       var id = total + 1;
 
-      user.on('invalid', function(model, error) {
+      thi.model.on('invalid', function(model, error) {
         var msg = 'There were errors!!!<br>' + error.reduce(function(el, el2) {
           return el + ' <br>' + el2;
         });
