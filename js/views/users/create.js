@@ -38,21 +38,49 @@ define([
       var total = localStorage.length;
       var id = total + 1;
 
-      thi.model.on('invalid', function(model, error) {
+      /*user.on('invalid', function(model, error) {
         var msg = 'There were errors!!!<br>' + error.reduce(function(el, el2) {
           return el + ' <br>' + el2;
         });
         messageDisplay(msg, 'error');
-      });
+      });*/
 
-      user.set({id: id , name: $name.val(), lastName: $lastName.val(), age: $age.val()});
-      UsersCollection.add(user);
-      if (user.save()) { //if user was inserted
-        $name.val('');
-        $lastName.val('');
-        $age.val('');
-        messageDisplay('User was successfully added into the database!'); //displays notification message
-      }
+      var data = {
+        id: id,
+        name: $name.val(),
+        lastName: $lastName.val(),
+        age: $age.val()
+      };
+
+
+
+      var errors = user.validate(data);
+      
+      if (errors.length == 0) 
+      { 
+          user.create(data);
+          console.log(user.save());
+          if (user.save())
+          { //if user was inserted
+            $name.val('');
+            $lastName.val('');
+            $age.val('');
+            messageDisplay('User was successfully added into the database!'); //displays notification message
+            }
+         }
+         else { var msg = 'There were errors!!!<br>';
+                               for(i=0;i<errors.length;i++){
+                                   msg = msg + errors[i] + "<br>";
+                                 }
+                                showMsg($messageEl, msg, 'error');
+                                countDown(3000, $messageEl, 'error');
+                               }
+                          
+
+      /*user.set({id: id , name: $name.val(), lastName: $lastName.val(), age: $age.val()});
+      UsersCollection.add(user);*/
+
+      
     },
 
     render: function(id) {

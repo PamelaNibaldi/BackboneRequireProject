@@ -40,21 +40,51 @@ define([
       var age = $('input[name="age"]').val();
       var user = new User();
       var $messageEl = $('.updateMsg');
-      user.on('invalid', function(model, error) {
+      /*user.on('invalid', function(model, error) {
         var msg = 'There were errors!!!<br>' + error.reduce(function(el, el2) {
           return el + ' <br>' + el2;
         });
         showMsg($messageEl, msg, 'error');
         countDown(3000, $messageEl, 'error');
-      });
-      if(user.set({id: id, name: name, lastName: lastName, age: age}, {validate:true})) {
+      });*/
+      
+
+      var data = {
+        id: id,
+        name: name,
+        lastName:lastName,
+        age: age
+      };
+
+      var errors = user.validate(data);
+      
+      if (errors.length == 0) { 
+                                user.edit(data);
+                                showMsg($messageEl, 'User was successfully edited!');
+                                var willCountDown = countDown(3000, $messageEl);
+                              }
+                        else { var msg = 'There were errors!!!<br>';
+                               for(i=0;i<errors.length;i++){
+                                   msg = msg + errors[i] + "<br>";
+                                 }
+                                showMsg($messageEl, msg, 'error');
+                                countDown(3000, $messageEl, 'error');
+                               }
+                                                
+    /*willCountDown.then(function() {//transition to listing page
+          document.location.href = '';
+    });*/
+      
+    /* if(user.set({id: id, name: name, lastName: lastName, age: age}, {validate:true})) {
         localStorage.setItem('users-local-storage-'+id, JSON.stringify(user));
         showMsg($messageEl, 'User was successfully edited!');
         var willCountDown = countDown(3000, $messageEl);
         willCountDown.then(function() {//transition to listing page
           document.location.href = '';
         });
-      }
+      //  
+      }*/
+      
     },
 
     render: function(id) {
