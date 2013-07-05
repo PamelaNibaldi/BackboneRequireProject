@@ -3,12 +3,20 @@ define([
   'jquery',
   'underscore',
   'backbone',
+  'marionette',
   'models/users',
   'collections/users',
   'router',
   'text!../../../templates/users/delete.html'
 //  'text!templates/users/delete.html'
-], function($, _, Backbone, User, UsersCollection, Router, usersDeleteTemplate){
+], function($, _, Backbone, Marionette, User, UsersCollection, Router, usersDeleteTemplate){
+
+  var UserDeleteView = Backbone.Marionette.ItemView.extend({
+    template: "#user_delete_template",
+//    tagName: 'tr',
+    className: 'items'
+  });
+
   var UsersDeleteView = Backbone.View.extend({
     el: $('#content'),
     template: _.template(usersDeleteTemplate),
@@ -43,4 +51,5 @@ define([
     }
   });
   return UsersDeleteView;
+
 });

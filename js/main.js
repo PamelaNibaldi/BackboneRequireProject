@@ -22,7 +22,8 @@ require.config({
       underscore : 'libs/underscore/underscore',
       backbone : 'libs/backbone/backbone',
       localStorage: 'libs/backbone/backbone.localStorage',
-      marionette: 'libs/backbone/backbone.marionette',
+//      marionette: 'libs/backbone/backbone.marionette',
+      marionette: 'libs/marionette/backbone.marionette.min',
 
 /*----------------- Libs --------------------*/
 
@@ -60,6 +61,10 @@ require.config({
     localStorage: {
       deps: ['backbone'],
       exports: 'localStorage'
+    },
+    marionette:{
+      deps: ['backbone'],
+      exports: 'Marionette'
     }
   },
 
