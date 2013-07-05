@@ -8,7 +8,7 @@ define([
       name: '',
       lastName: '',
       //age: -1,
-      id: 0
+      //id: 0
     },
   
   validate: function(attrs) {
